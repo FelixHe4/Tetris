@@ -8,4 +8,4 @@ export const StyledCell = styled.div`
     border-left-color: rgba(${props => props.color}, 1);
     border-right-color: rgba(${props => props.color}, 1);
     border-top-color: rgba(${props => props.color}, 0.3);
-`
+`;
