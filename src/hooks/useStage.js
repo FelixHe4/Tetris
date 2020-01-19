@@ -12,14 +12,17 @@ export const useStage = (player, resetPlayer) => {
                     row.forEach((value, x) => {
                         if(value !== 0){
                             newStage[y + player.pos.y][x + player.pos.x] = 
-                            [value, `#{player.collided ?  'merged' : 'clear'}` ,
+                            [value, `${player.collided ?  'merged' : 'clear'}` ,
                         ];
                         }
                     });
                 });
+                if (player.collided) {
+                    resetPlayer();
+                }
                 return newStage;
         };
         setStage(prev => updateStage(prev))
-    }, [player.collided, player.pos.x, player.pos.y, player.tetromino])
+    }, [player, resetPlayer]);
     return [stage, setStage];
 }
